@@ -30,10 +30,16 @@
 #uci set firewall.@zone[0].network='lan ipv6'
 #EOF
 
+rm -rf feeds/luci/collections/luci-lib-docker
+rm -rf feeds/luci/applications/luci-app-dockerman
+git clone https://github.com/lisaac/luci-lib-docker.git package/luci-lib-docker
+git clone https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dockerman
+
 git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-bypass package/luci-app-bypass
 
-echo "iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE" >> package/network/config/firewall/files/firewall.user
+# 替换index.htm文件
+wget -O ./package/lean/autocore/files/arm/index.htm https://raw.githubusercontent.com/0118Add/Actions-Shangyou/main/n1_index.htm
 
 # 把bootstrap替换成argon为源码必选主题（可自行修改您要的,主题名称必须对,比如下面代码的[argon],源码内必须有该主题,要不然编译失败）
 sed -i "s/bootstrap/argon/ig" feeds/luci/collections/luci/Makefile
@@ -53,7 +59,7 @@ sed -i "s/bootstrap/argon/ig" feeds/luci/collections/luci/Makefile
 
 # 删除默认防火墙
 sed -i '/to-ports 53/d' "$ZZZ_PATH"
-
+echo "iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE" >> package/network/config/firewall/files/firewall.user
 
 # 取消路由器每天跑分任务
 #sed -i "/exit 0/i\sed -i '/coremark/d' /etc/crontabs/root" "$FIN_PATH"
