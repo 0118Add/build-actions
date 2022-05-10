@@ -49,7 +49,6 @@ git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic pa
 rm -rf feeds/luci/themes/luci-theme-argon
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
-git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 
 # 替换index.htm文件
 wget -O ./package/lean/autocore/files/arm/index.htm https://raw.githubusercontent.com/0118Add/Actions-Shangyou/main/n1_index.htm
