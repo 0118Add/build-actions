@@ -101,26 +101,26 @@ sed -i 's/services/vpn/g' package/luci-app-bypass/luasrc/view/bypass/*.htm
 #sed -i 's/services/vpn/g' package/helloworld/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/*.lua
 #sed -i 's/services/vpn/g' package/helloworld/luci-app-ssr-plus/luasrc/view/shadowsocksr/*.htm
 # TIME b "调整 Pass Wall 到 GFW 菜单"
-#sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/controller/*.lua
-#sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/model/cbi/passwall/api/*.lua
-#sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/model/cbi/passwall/client/*.lua
-#sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/model/cbi/passwall/server/*.lua
-#sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/app_update/*.htm
-#sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/global/*.htm
-#sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/haproxy/*.htm
-#sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/log/*.htm
-#sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/node_list/*.htm
-#sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/rule/*.htm
-#sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/server/*.htm
+sed -i 's/services/vpn/g' feeds/passwall1/luasrc/controller/*.lua
+sed -i 's/services/vpn/g' feeds/passwall1/luasrc/model/cbi/passwall/api/*.lua
+sed -i 's/services/vpn/g' feeds/passwall1/luasrc/model/cbi/passwall/client/*.lua
+sed -i 's/services/vpn/g' feeds/passwall1/luasrc/model/cbi/passwall/server/*.lua
+sed -i 's/services/vpn/g' feeds/passwall1/luasrc/view/passwall/app_update/*.htm
+sed -i 's/services/vpn/g' feeds/passwall1/luasrc/view/passwall/global/*.htm
+sed -i 's/services/vpn/g' feeds/passwall1/luasrc/view/passwall/haproxy/*.htm
+sed -i 's/services/vpn/g' feeds/passwall1/luasrc/view/passwall/log/*.htm
+sed -i 's/services/vpn/g' feeds/passwall1/luasrc/view/passwall/node_list/*.htm
+sed -i 's/services/vpn/g' feeds/passwall1/luasrc/view/passwall/rule/*.htm
+sed -i 's/services/vpn/g' feeds/passwall1/luasrc/view/passwall/server/*.htm
 # TIME b "调整 Hello World 到 GFW 菜单"
-sed -i 's/services/vpn/g' package/luci-app-vssr/luasrc/controller/*.lua
-sed -i 's/services/vpn/g' package/luci-app-vssr/luasrc/model/cbi/vssr/*.lua
-sed -i 's/services/vpn/g' package/luci-app-vssr/luasrc/view/vssr/*.htm
+sed -i 's/services/vpn/g' feeds/danshui/luci-app-vssr/luasrc/controller/*.lua
+sed -i 's/services/vpn/g' feeds/danshui/luci-app-vssr/luasrc/model/cbi/vssr/*.lua
+sed -i 's/services/vpn/g' feeds/danshui/luci-app-vssr/luasrc/view/vssr/*.htm
 # TIME b "调整 Open Clash 到 GFW 菜单"
-sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/controller/*.lua
-sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/*.lua
-sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/model/cbi/openclash/*.lua
-sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/view/openclash/*.htm
+sed -i 's/services/vpn/g' feeds/danshui/luci-app-openclash/luci-app-openclash/luasrc/controller/*.lua
+sed -i 's/services/vpn/g' feeds/danshui/luci-app-openclash/luci-app-openclash/luasrc/*.lua
+sed -i 's/services/vpn/g' feeds/danshui/luci-app-openclash/luci-app-openclash/luasrc/model/cbi/openclash/*.lua
+sed -i 's/services/vpn/g' feeds/danshui/luci-app-openclash/luci-app-openclash/luasrc/view/openclash/*.htm
 
 
 # 整理固件包时候,删除您不想要的固件或者文件,让它不需要上传到Actions空间
