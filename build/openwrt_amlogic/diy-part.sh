@@ -32,11 +32,23 @@
 
 rm -rf feeds/luci/collections/luci-lib-docker
 rm -rf feeds/luci/applications/luci-app-dockerman
+rm -rf feeds/luci/applications/luci-app-netdata
 git clone https://github.com/lisaac/luci-lib-docker.git package/luci-lib-docker
 git clone https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dockerman
+svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-netdata package/luci-app-netdata
 
-git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
+git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
+git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-bypass package/luci-app-bypass
+git clone https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
+#git clone -b luci https://github.com/xiaorouji/openwrt-passwall.git package/passwall
+#git clone https://github.com/xiaorouji/openwrt-passwall2.git package/openwrt-passwall2
+svn co https://github.com/vernesong/OpenClash/branches/dev/luci-app-openclash package/luci-app-openclash
+git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
+rm -rf feeds/luci/themes/luci-theme-argon
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
+git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
+git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 
 # 替换index.htm文件
 wget -O ./package/lean/autocore/files/arm/index.htm https://raw.githubusercontent.com/0118Add/Actions-Shangyou/main/n1_index.htm
@@ -99,34 +111,34 @@ sed -i 's/"admin",/"admin","services",/g' feeds/luci/applications/luci-app-zerot
 sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-zerotier/luasrc/model/cbi/zerotier/*.lua
 sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-zerotier/luasrc/view/zerotier/*.htm
 # TIME b "调整 bypass 到 GFW 菜单"
-sed -i 's/services/vpn/g' package/luci-app-bypass/luasrc/controller/*.lua
-sed -i 's/services/vpn/g' package/luci-app-bypass/luasrc/model/cbi/bypass/*.lua
-sed -i 's/services/vpn/g' package/luci-app-bypass/luasrc/view/bypass/*.htm
+sed -i 's/services/vpn/g' package/pass/luci-app-bypass/luasrc/controller/*.lua
+sed -i 's/services/vpn/g' package/pass/luci-app-bypass/luasrc/model/cbi/bypass/*.lua
+sed -i 's/services/vpn/g' package/pass/luci-app-bypass/luasrc/view/bypass/*.htm
 # TIME b "调整 SSRP 到 GFW 菜单"
 #sed -i 's/services/vpn/g' package/helloworld/luci-app-ssr-plus/luasrc/controller/*.lua
 #sed -i 's/services/vpn/g' package/helloworld/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/*.lua
 #sed -i 's/services/vpn/g' package/helloworld/luci-app-ssr-plus/luasrc/view/shadowsocksr/*.htm
 # TIME b "调整 Pass Wall 到 GFW 菜单"
-sed -i 's/services/vpn/g' feeds/passwall1/luasrc/controller/*.lua
-sed -i 's/services/vpn/g' feeds/passwall1/luasrc/model/cbi/passwall/api/*.lua
-sed -i 's/services/vpn/g' feeds/passwall1/luasrc/model/cbi/passwall/client/*.lua
-sed -i 's/services/vpn/g' feeds/passwall1/luasrc/model/cbi/passwall/server/*.lua
-sed -i 's/services/vpn/g' feeds/passwall1/luasrc/view/passwall/app_update/*.htm
-sed -i 's/services/vpn/g' feeds/passwall1/luasrc/view/passwall/global/*.htm
-sed -i 's/services/vpn/g' feeds/passwall1/luasrc/view/passwall/haproxy/*.htm
-sed -i 's/services/vpn/g' feeds/passwall1/luasrc/view/passwall/log/*.htm
-sed -i 's/services/vpn/g' feeds/passwall1/luasrc/view/passwall/node_list/*.htm
-sed -i 's/services/vpn/g' feeds/passwall1/luasrc/view/passwall/rule/*.htm
-sed -i 's/services/vpn/g' feeds/passwall1/luasrc/view/passwall/server/*.htm
+sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/controller/*.lua
+sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/model/cbi/passwall/api/*.lua
+sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/model/cbi/passwall/client/*.lua
+sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/model/cbi/passwall/server/*.lua
+sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/app_update/*.htm
+sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/global/*.htm
+sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/haproxy/*.htm
+sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/log/*.htm
+sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/node_list/*.htm
+sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/rule/*.htm
+sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/server/*.htm
 # TIME b "调整 Hello World 到 GFW 菜单"
-sed -i 's/services/vpn/g' feeds/danshui/luci-app-vssr/luasrc/controller/*.lua
-sed -i 's/services/vpn/g' feeds/danshui/luci-app-vssr/luasrc/model/cbi/vssr/*.lua
-sed -i 's/services/vpn/g' feeds/danshui/luci-app-vssr/luasrc/view/vssr/*.htm
+sed -i 's/services/vpn/g' package/luci-app-vssr/luasrc/controller/*.lua
+sed -i 's/services/vpn/g' package/luci-app-vssr/luasrc/model/cbi/vssr/*.lua
+sed -i 's/services/vpn/g' package/luci-app-vssr/luasrc/view/vssr/*.htm
 # TIME b "调整 Open Clash 到 GFW 菜单"
-sed -i 's/services/vpn/g' feeds/danshui/luci-app-openclash/luci-app-openclash/luasrc/controller/*.lua
-sed -i 's/services/vpn/g' feeds/danshui/luci-app-openclash/luci-app-openclash/luasrc/*.lua
-sed -i 's/services/vpn/g' feeds/danshui/luci-app-openclash/luci-app-openclash/luasrc/model/cbi/openclash/*.lua
-sed -i 's/services/vpn/g' feeds/danshui/luci-app-openclash/luci-app-openclash/luasrc/view/openclash/*.htm
+sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/controller/*.lua
+sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/*.lua
+sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/model/cbi/openclash/*.lua
+sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/view/openclash/*.htm
 
 
 # 整理固件包时候,删除您不想要的固件或者文件,让它不需要上传到Actions空间
