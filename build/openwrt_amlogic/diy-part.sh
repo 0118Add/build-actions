@@ -35,7 +35,6 @@ rm -rf feeds/luci/applications/luci-app-dockerman
 #rm -rf feeds/luci/applications/luci-app-netdata
 git clone https://github.com/lisaac/luci-lib-docker.git package/luci-lib-docker
 git clone https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dockerman
-#svn co https://github.com/kiddin9/openwrt-packages/trunk/netdata package/netdata
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-netdata package/luci-app-netdata
 
 git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
@@ -46,7 +45,7 @@ git clone -b luci https://github.com/xiaorouji/openwrt-passwall.git package/pass
 #git clone https://github.com/xiaorouji/openwrt-passwall2.git package/openwrt-passwall2
 svn co https://github.com/vernesong/OpenClash/branches/dev/luci-app-openclash package/luci-app-openclash
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
-rm -rf feeds/luci/themes/luci-theme-argon
+#rm -rf feeds/luci/themes/luci-theme-argon
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
 git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
