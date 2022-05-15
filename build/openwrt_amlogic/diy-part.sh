@@ -140,7 +140,6 @@ sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/*.lua
 sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/model/cbi/openclash/*.lua
 sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/view/openclash/*.htm
 
-
 # 整理固件包时候,删除您不想要的固件或者文件,让它不需要上传到Actions空间
 cat >"$CLEAR_PATH" <<-EOF
 packages
@@ -149,3 +148,9 @@ feeds.buildinfo
 sha256sums
 version.buildinfo
 EOF
+
+# TIME g "自定义文件修复权限"
+chmod -R 755 package
+
+./scripts/feeds update -i
+./scripts/feeds install -a
