@@ -155,3 +155,9 @@ openwrt-x86-64-generic-squashfs-rootfs.img.gz
 sha256sums
 version.buildinfo
 EOF
+
+# TIME g "自定义文件修复权限"
+chmod -R 755 package
+
+./scripts/feeds update -i
+./scripts/feeds install -a
