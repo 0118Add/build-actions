@@ -53,6 +53,9 @@ git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-ap
 wget -O ./package/lean/autocore/files/arm/index.htm https://raw.githubusercontent.com/0118Add/Actions-Shangyou/main/x86_index.htm
 
 
+#替换coremark ./lede/feeds/packages/utils/coremark/coremark.sh
+wget -O ./feeds/packages/utils/coremark/coremark.sh https://raw.githubusercontent.com/kissyouhunter/openwrt_lede/main/diy/x86_lede/coremark.sh
+
 # 把bootstrap替换成argon为源码必选主题（可自行修改您要的,主题名称必须对,比如下面代码的[argon],源码内必须有该主题,要不然编译失败）
 #sed -i "s/bootstrap/argon/ig" feeds/luci/collections/luci/Makefile
 
