@@ -146,7 +146,10 @@ packages
 config.buildinfo
 feeds.buildinfo
 sha256sums
+Image
+Image-initramfs
 version.buildinfo
+default.manifest
 EOF
 
 # TIME g "自定义文件修复权限"
