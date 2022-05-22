@@ -1,0 +1,7 @@
+# Put your custom commands here that should be executed once
+# the system init finished. By default this file does nothing.
+
+/usr/sbin/balethirq.pl
+/mnt/mmcblk2p4/openvfd/startled.sh /mnt/mmcblk2p4/openvfd/conf/hk1box.conf
+exit 0
+
