@@ -99,6 +99,8 @@ sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' `egrep "Turbo ACC 网络加
 #sed -i 's/"管理权"/"改密码"/g' `egrep "管理权" -rl ./`
 #sed -i 's/"带宽监控"/"监控"/g' `egrep "带宽监控" -rl ./`
 sed -i 's/"解除网易云音乐播放限制"/"音乐解锁"/g' `egrep "解除网易云音乐播放限制" -rl ./`
+sed -i 's/"Docker CE 容器"/"Docker 容器"/g' `egrep "Docker CE 容器" -rl ./`
+#sed -i 's/Docker CE 容器/Docker 容器/g' feeds/luci/applications/luci-app-docker/po/zh-cn/docker.po
 
 # TIME b "调整 Dockerman 到 服务 菜单"
 sed -i 's/docker/services/g' package/luci-app-dockerman/applications/luci-app-dockerman/luasrc/controller/*.lua
