@@ -30,7 +30,7 @@ uci set network.lan.ipaddr='192.168.2.10'                      # IPv4 地址(ope
 #uci set firewall.@zone[0].network='lan ipv6'
 #EOF
 
-TIME y "删除添加插件"
+# TIME y "删除添加插件"
 rm -rf feeds/luci/collections/luci-lib-docker
 rm -rf feeds/luci/applications/luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-netdata
@@ -51,7 +51,7 @@ git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luc
 git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
 git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 
-TIME y "替换index.htm文件"
+# TIME y "替换index.htm文件"
 wget -O ./package/lean/autocore/files/arm/index.htm https://raw.githubusercontent.com/0118Add/Actions-Shangyou/main/n1_index.htm
 
 # 把bootstrap替换成argon为源码必选主题（可自行修改您要的,主题名称必须对,比如下面代码的[argon],源码内必须有该主题,要不然编译失败）
@@ -70,7 +70,7 @@ wget -O ./package/lean/autocore/files/arm/index.htm https://raw.githubuserconten
 #sed -i '/CYXluq4wUazHjmCDBCqXF/d' "$ZZZ_PATH"
 
 
-TIME y "删除默认防火墙"
+# TIME y "删除默认防火墙"
 #sed -i '/to-ports 53/d' "$ZZZ_PATH"
 echo "iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE" >> package/network/config/firewall/files/firewall.user
 
@@ -88,7 +88,7 @@ rootfs_size=960
 EOF
 
 
-TIME y "修改插件名字"
+# TIME y "修改插件名字"
 #sed -i 's/"aMule设置"/"电驴下载"/g' `egrep "aMule设置" -rl ./`
 #sed -i 's/"网络存储"/"NAS"/g' `egrep "网络存储" -rl ./`
 sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' `egrep "Turbo ACC 网络加速" -rl ./`
@@ -103,29 +103,29 @@ sed -i 's/"解除网易云音乐播放限制"/"音乐解锁"/g' `egrep "解除�
 sed -i 's/"Docker CE 容器"/"Docker 容器"/g' `egrep "Docker CE 容器" -rl ./`
 #sed -i 's/Docker CE 容器/Docker 容器/g' feeds/luci/applications/luci-app-docker/po/zh-cn/docker.po
 
-TIME y "调整 Dockerman 到 服务 菜单"
+# TIME y "调整 Dockerman 到 服务 菜单"
 sed -i 's/docker/services/g' package/luci-app-dockerman/applications/luci-app-dockerman/luasrc/controller/*.lua
 sed -i 's/docker/services/g' package/luci-app-dockerman/applications/luci-app-dockerman/luasrc/model/*.lua
 sed -i 's/docker/services/g' package/luci-app-dockerman/applications/luci-app-dockerman/luasrc/model/cbi/dockerman/*.lua
 sed -i 's/docker/services/g' package/luci-app-dockerman/applications/luci-app-dockerman/luasrc/view/dockerman/*.htm
 sed -i 's/docker/services/g' package/luci-app-dockerman/applications/luci-app-dockerman/luasrc/view/dockerman/cbi/*.htm
 
-TIME y "调整 Zerotier 到 服务 菜单"
+# TIME y "调整 Zerotier 到 服务 菜单"
 sed -i 's/vpn/services/g' ./feeds/luci/applications/luci-app-zerotier/luasrc/controller/*.lua
 sed -i 's/vpn/services/g' ./feeds/luci/applications/luci-app-zerotier/luasrc/model/cbi/zerotier/*.lua
 sed -i 's/vpn/services/g' ./feeds/luci/applications/luci-app-zerotier/luasrc/view/zerotier/*.htm
 
-TIME y "调整 bypass 到 GFW 菜单"
+# TIME y "调整 bypass 到 GFW 菜单"
 sed -i 's/services/vpn/g' package/luci-app-bypass/luasrc/controller/*.lua
 sed -i 's/services/vpn/g' package/luci-app-bypass/luasrc/model/cbi/bypass/*.lua
 sed -i 's/services/vpn/g' package/luci-app-bypass/luasrc/view/bypass/*.htm
 
-TIME y "调整 SSRP 到 GFW 菜单"
+# TIME y "调整 SSRP 到 GFW 菜单"
 #sed -i 's/services/vpn/g' package/helloworld/luci-app-ssr-plus/luasrc/controller/*.lua
 #sed -i 's/services/vpn/g' package/helloworld/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/*.lua
 #sed -i 's/services/vpn/g' package/helloworld/luci-app-ssr-plus/luasrc/view/shadowsocksr/*.htm
 
-TIME y "调整 Pass Wall 到 GFW 菜单"
+# TIME y "调整 Pass Wall 到 GFW 菜单"
 sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/controller/*.lua
 sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/model/cbi/passwall/api/*.lua
 sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/model/cbi/passwall/client/*.lua
@@ -138,12 +138,12 @@ sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwal
 sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/rule/*.htm
 sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/server/*.htm
 
-TIME y "调整 Hello World 到 GFW 菜单"
+# TIME y "调整 Hello World 到 GFW 菜单"
 sed -i 's/services/vpn/g' package/luci-app-vssr/luasrc/controller/*.lua
 sed -i 's/services/vpn/g' package/luci-app-vssr/luasrc/model/cbi/vssr/*.lua
 sed -i 's/services/vpn/g' package/luci-app-vssr/luasrc/view/vssr/*.htm
 
-TIME y "调整 Open Clash 到 GFW 菜单"
+# TIME y "调整 Open Clash 到 GFW 菜单"
 sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/controller/*.lua
 sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/*.lua
 sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/model/cbi/openclash/*.lua
