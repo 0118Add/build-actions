@@ -30,31 +30,34 @@
 #uci set firewall.@zone[0].network='lan ipv6'
 #EOF
 
-rm -rf feeds/luci/collections/luci-lib-docker
-rm -rf feeds/luci/applications/luci-app-dockerman
-#rm -rf feeds/luci/applications/luci-app-netdata
-git clone https://github.com/lisaac/luci-lib-docker.git package/luci-lib-docker
-git clone https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dockerman
-svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-netdata package/luci-app-netdata
+wget https://raw.githubusercontent.com/0118Add/patch/main/gd772.sh
+bash gd772.sh
 
-git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
-git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
-svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-bypass package/luci-app-bypass
-git clone https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
-git clone -b luci https://github.com/xiaorouji/openwrt-passwall.git package/passwall
+#rm -rf feeds/luci/collections/luci-lib-docker
+#rm -rf feeds/luci/applications/luci-app-dockerman
+#rm -rf feeds/luci/applications/luci-app-netdata
+#git clone https://github.com/lisaac/luci-lib-docker.git package/luci-lib-docker
+#git clone https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dockerman
+#svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-netdata package/luci-app-netdata
+
+#git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
+#git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
+#svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-bypass package/luci-app-bypass
+#git clone https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
+#git clone -b luci https://github.com/xiaorouji/openwrt-passwall.git package/passwall
 #git clone https://github.com/xiaorouji/openwrt-passwall2.git package/openwrt-passwall2
-svn co https://github.com/vernesong/OpenClash/branches/dev/luci-app-openclash package/luci-app-openclash
-git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
+#svn co https://github.com/vernesong/OpenClash/branches/dev/luci-app-openclash package/luci-app-openclash
+#git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 #rm -rf feeds/luci/themes/luci-theme-argon
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
-git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
+#git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
+#git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
 
 # 替换index.htm文件
-wget -O ./package/lean/autocore/files/arm/index.htm https://raw.githubusercontent.com/0118Add/Actions-Shangyou/main/x86_index.htm
+#wget -O ./package/lean/autocore/files/arm/index.htm https://raw.githubusercontent.com/0118Add/Actions-Shangyou/main/x86_index.htm
 
 
 #替换coremark ./lede/feeds/packages/utils/coremark/coremark.sh
-wget -O ./feeds/packages/utils/coremark/coremark.sh https://raw.githubusercontent.com/kissyouhunter/openwrt_lede/main/diy/x86_lede/coremark.sh
+#wget -O ./feeds/packages/utils/coremark/coremark.sh https://raw.githubusercontent.com/kissyouhunter/openwrt_lede/main/diy/x86_lede/coremark.sh
 
 # 把bootstrap替换成argon为源码必选主题（可自行修改您要的,主题名称必须对,比如下面代码的[argon],源码内必须有该主题,要不然编译失败）
 #sed -i "s/bootstrap/argon/ig" feeds/luci/collections/luci/Makefile
@@ -89,14 +92,14 @@ wget -O ./feeds/packages/utils/coremark/coremark.sh https://raw.githubuserconten
 
 
 # 在线更新时，删除不想保留固件的某个文件，在EOF跟EOF之间加入删除代码，记住这里对应的是固件的文件路径，比如： rm -rf /etc/config/luci
-cat >$DELETE <<-EOF
-EOF
+#cat >$DELETE <<-EOF
+#EOF
 
 
 # 修改插件名字
 #sed -i 's/"aMule设置"/"电驴下载"/g' `egrep "aMule设置" -rl ./`
 #sed -i 's/"网络存储"/"NAS"/g' `egrep "网络存储" -rl ./`
-sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' `egrep "Turbo ACC 网络加速" -rl ./`
+#sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' `egrep "Turbo ACC 网络加速" -rl ./`
 #sed -i 's/"实时流量监测"/"流量"/g' `egrep "实时流量监测" -rl ./`
 #sed -i 's/"KMS 服务器"/"KMS激活"/g' `egrep "KMS 服务器" -rl ./`
 #sed -i 's/"TTYD 终端"/"命令窗"/g' `egrep "TTYD 终端" -rl ./`
@@ -104,7 +107,7 @@ sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' `egrep "Turbo ACC 网络加
 #sed -i 's/"Web 管理"/"Web管理"/g' `egrep "Web 管理" -rl ./`
 #sed -i 's/"管理权"/"改密码"/g' `egrep "管理权" -rl ./`
 #sed -i 's/"带宽监控"/"监控"/g' `egrep "带宽监控" -rl ./`
-sed -i 's/"解除网易云音乐播放限制"/"音乐解锁"/g' `egrep "解除网易云音乐播放限制" -rl ./`
+#sed -i 's/"解除网易云音乐播放限制"/"音乐解锁"/g' `egrep "解除网易云音乐播放限制" -rl ./`
 
 # TIME b "调整 Dockerman 到 服务 菜单"
 #sed -i 's/"admin",/"admin","services",/g' package/luci-app-dockerman/applications/luci-app-dockerman/luasrc/controller/*.lua
@@ -148,19 +151,19 @@ sed -i 's/"解除网易云音乐播放限制"/"音乐解锁"/g' `egrep "解除�
 
 
 # 整理固件包时候,删除您不想要的固件或者文件,让它不需要上传到Actions空间（根据编译机型变化,自行调整需要删除的固件名称）
-cat >"$CLEAR_PATH" <<-EOF
-packages
-config.buildinfo
-feeds.buildinfo
-openwrt-x86-64-generic-kernel.bin
-openwrt-x86-64-generic.manifest
-openwrt-x86-64-generic-squashfs-rootfs.img.gz
-sha256sums
-version.buildinfo
-EOF
+#cat >"$CLEAR_PATH" <<-EOF
+#packages
+#config.buildinfo
+#feeds.buildinfo
+#openwrt-x86-64-generic-kernel.bin
+#openwrt-x86-64-generic.manifest
+#openwrt-x86-64-generic-squashfs-rootfs.img.gz
+#sha256sums
+#version.buildinfo
+#EOF
 
 # TIME g "自定义文件修复权限"
-chmod -R 755 package
+#chmod -R 755 package
 
-./scripts/feeds update -i
-./scripts/feeds install -a
+#./scripts/feeds update -i
+#./scripts/feeds install -a
