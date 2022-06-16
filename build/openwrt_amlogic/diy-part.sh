@@ -76,7 +76,7 @@ bash n1.sh
 
 # TIME y "删除默认防火墙"
 #sed -i '/to-ports 53/d' "$ZZZ_PATH"
-echo "iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE" >> package/network/config/firewall/files/firewall.user
+#echo "iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE" >> package/network/config/firewall/files/firewall.user
 
 # 取消路由器每天跑分任务
 #sed -i "/exit 0/i\sed -i '/coremark/d' /etc/crontabs/root" "$FIN_PATH"
