@@ -30,8 +30,12 @@
 #uci set firewall.@zone[0].network='lan ipv6'
 #EOF
 
+echo "iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE" >> package/network/config/firewall/files/firewall.user
+
+git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 git clone https://github.com/gd0772/package package/gd772
-wget https://raw.githubusercontent.com/gd0772/patch/main/n1.sh
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
+wget https://raw.githubusercontent.com/0118Add/patch/main/n1.sh
 bash n1.sh
 
 # TIME y "删除添加插件"
