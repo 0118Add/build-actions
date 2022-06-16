@@ -30,6 +30,8 @@
 #uci set firewall.@zone[0].network='lan ipv6'
 #EOF
 
+git clone https://github.com/gd0772/package package/gd772
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 wget https://raw.githubusercontent.com/0118Add/patch/main/gd772.sh
 bash gd772.sh
 
