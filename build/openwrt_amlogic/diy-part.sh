@@ -158,16 +158,17 @@ EOF
 #sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/view/openclash/*.htm
 
 # 整理固件包时候,删除您不想要的固件或者文件,让它不需要上传到Actions空间
-#cat >"$CLEAR_PATH" <<-EOF
-#packages
-#config.buildinfo
-#feeds.buildinfo
-#sha256sums
-#Image
-#Image-initramfs
-#version.buildinfo
-#default.manifest
-#EOF
+cat >"$CLEAR_PATH" <<-EOF
+packages
+config.buildinfo
+feeds.buildinfo
+default.manifest
+sha256sums
+Image
+Image-initramfs
+version.buildinfo
+default.manifest
+EOF
 
 # TIME g "自定义文件修复权限"
 #chmod -R 755 package
