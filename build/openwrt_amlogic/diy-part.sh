@@ -91,7 +91,7 @@ bash n1.sh
 
 cat >"$AMLOGIC_SH_PATH" <<-EOF
 amlogic_model=s905x3
-amlogic_kernel=5.15.25_5.17.5 -a true
+amlogic_kernel=5.18.3_5.17.5 -a true
 rootfs_size=960
 EOF
 
