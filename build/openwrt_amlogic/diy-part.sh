@@ -90,8 +90,8 @@ bash n1.sh
 # 当前可用机型 s922x s922x-n2 s922x-reva a311d s905x3 s905x2 s905x2-km3 s905l3a s912 s912-m8s s905d s905d-ki s905x s905w s905
 
 cat >"$AMLOGIC_SH_PATH" <<-EOF
-amlogic_model=s905x3
-amlogic_kernel=5.18.3_5.17.5 -a true
+amlogic_model=s905x3_s905d
+amlogic_kernel=5.18.3_5.15.50 -a true
 rootfs_size=960
 EOF
 
